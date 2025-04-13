@@ -1,0 +1,48 @@
+
+  
+
+<%- include('header.ejs') %>
+
+<section class="background-radial-gradient overflow-hidden mt-5 pt-5">
+  <div class="container-fluid">
+    <h2 class="text-center text-light">View Registration</h2>
+    <div class="row">
+      <div class="col-2 text-uppercase">
+        <%- include('left.ejs') %>
+      </div>
+      <div class="col-10 align-content-center tableOverflow p-0">
+        <table class="table table-dark table-hover table-bordered">
+          <% if (regdata.length > 0) { %>
+            <thead>
+              <tr class="table-active">
+                <th>Username</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Contact</th>
+                <th>Password</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody id="userTable"> <!-- Added id="userTable" here -->
+              <% for (var i = 0; i < regdata.length; i++) { %>
+                <tr>
+                  <td><%= regdata[i].username %></td>
+                  <td><%= regdata[i].email %></td>
+                  <td><%= regdata[i].address %></td>
+                  <td><%= regdata[i].contact %></td>
+                  <td><%= regdata[i].password %></td>
+                  <td><a href="/edit/<%= regdata[i]._id %>" class="btn btn-outline-success"><i class="bi bi-pencil text-light"></i></a></td>
+                  <td><a href="/delete/<%= regdata[i]._id %>" class="btn btn-outline-danger"><i class="bi bi-trash3 text-light"></i></a></td>
+                </tr>
+              <% } %>
+            </tbody>
+          <% } else { %>
+            <p class="fs-3 bg-danger bg-opacity-75 text-center py-5 text-light text-uppercase">
+              No records found......!</p>
+          <% } %>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

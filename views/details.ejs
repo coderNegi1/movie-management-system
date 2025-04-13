@@ -1,0 +1,56 @@
+
+<link rel="stylesheet" href="./css/style.css">
+<%- include('./common/header.ejs') %>
+
+<body class="bg-dark fs-5">
+    
+
+    <section class="mt-5 pt-5">
+        <div class="container">
+            <h2 class="text-light"><%= dmoviesdata.moviename %></h2>
+
+            <div class="row">
+                <div class="col-12 col-lg-6  align-items-center align-items-md-start text-light">
+                    <ul class="list-unstyled">
+                        <li class="mb-1">
+                            <span class="p-1"><%= dmoviesdata.rating %> <i class="bi bi-star-fill text-warning"></i></span>
+                            <span class="border rounded p-1 text-danger"><%= dmoviesdata.quality %></span>
+                            <span class="border rounded p-1 mx-2"> <%= dmoviesdata.age %>+</span>
+                        </li>
+                        <li>Director: <span class="text-success"> <%= dmoviesdata.director %></span></li>
+                        <li>Cast: <span class="text-warning"> <%= dmoviesdata.cast %> </span></li>
+                        <li>Genre: <span class="text-danger"><%= dmoviesdata.choose_genere %> </span></li>
+                        <li>Premiere: <%= dmoviesdata.date %> </li>
+                        <li>Running time: <%= dmoviesdata.duration %> </li>
+                        <li>Country: <span class="text-warning"><%= dmoviesdata.country %> </span></li>
+                    </ul>
+                    <p class="text-light"><%= dmoviesdata.description %> </p>
+                </div>
+
+                <div class="col-12 col-lg-6 mt-3 mt-md-0">
+                    <img src="/<%= dmoviesdata.cover %>" class="img-fluid rounded " style="min-height: 500px; object-fit: cover;" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="container pb-4">
+            <div class="col-12 col-md-6"> 
+                <form action="/movies/<%= movie_id %>/comments" method="POST">
+                    <div class="form-group">
+                      <label for="guestName" class="text-light">Your Name:</label>
+                      <input type="text" name="guestName" id="guestName" placeholder="Enter your name" class="form-control bg-dark text-light">
+                    </div>
+                    <div class="form-group">
+                      <label for="comment" class="text-light">Add Comment:</label>
+                      <input type="text" name="comment" id="comment" placeholder="Add comments" class="form-control bg-dark text-light">
+                    </div>
+                    <input type="hidden" name="movie_id" value="<%= movie_id %>">
+                    <button type="submit" class="btn btn-danger mt-4">Send</button>
+                  </form>
+            </div>
+        </div>
+    </section>
+
+    <%- include('./common/footer.ejs') %>
+</body>
+

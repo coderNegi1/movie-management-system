@@ -1,0 +1,111 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include('header.ejs') %>
+
+<section class="background-radial-gradient overflow-hidden">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2 text-uppercase">
+        <%- include('left.ejs') %>
+      </div>
+      <div class="col-10 mt-5 pt-5">
+        <h2 class="text-center text-light">Edit Movie</h2>
+
+        <!-- Edit Movie Form -->
+        <form method="post" class="border rounded px-3 py-5 Movieform">
+          <div class="row">
+            <!-- Movie Title and Date -->
+            <div class="col-6">
+              <input type="text" name="moviename" value="<%=addedmoviedata.moviename %>" placeholder="Title"
+                class="form-control py-3 mb-3">
+            </div>
+            <div class="col-3">
+              <input type="date" name="date" value="<%=addedmoviedata.date %>" placeholder="Release Date"
+                class="form-control py-3 mb-3">
+            </div>
+            <div class="col-3">
+              <input type="text" name="age" value="<%=addedmoviedata.age %>" placeholder="Age"
+                class="form-control py-3 mb-3">
+            </div>
+
+            <!-- Description -->
+            <div class="col-6">
+              <input type="text" name="description" value="<%=addedmoviedata.description %>" placeholder="Description"
+                class="form-control px-2 mb-3" style="padding: 53px 0;">
+            </div>
+
+            <!-- Genre, Country, Duration, and Quality -->
+            <div class="col-6">
+              <div class="row row-gap-3">
+                <div class="col-6">
+                  <select name="choose_genere" class="form-control py-3">
+                    <option value="Action" <%= addedmoviedata.choose_genere === 'Action' ? 'selected' : '' %>>Action</option>
+                    <option value="Animation" <%= addedmoviedata.choose_genere === 'Animation' ? 'selected' : '' %>>Animation</option>
+                    <option value="Comedy" <%= addedmoviedata.choose_genere === 'Comedy' ? 'selected' : '' %>>Comedy</option>
+                    <option value="Crime" <%= addedmoviedata.choose_genere === 'Crime' ? 'selected' : '' %>>Crime</option>
+                    <option value="Romance" <%= addedmoviedata.choose_genere === 'Romance' ? 'selected' : '' %>>Romance</option>
+                    <option value="Science-Fiction" <%= addedmoviedata.choose_genere === 'Science-Fiction' ? 'selected' : '' %>>Science-Fiction</option>
+                    <option value="Thriller" <%= addedmoviedata.choose_genere === 'Thriller' ? 'selected' : '' %>>Thriller</option>
+                    <option value="Western" <%= addedmoviedata.choose_genere === 'Western' ? 'selected' : '' %>>Western</option>
+                    <option value="Other" <%= addedmoviedata.choose_genere === 'Other' ? 'selected' : '' %>>Other</option>
+                  </select>
+                </div>
+                <div class="col-6">
+                  <select name="country" class="form-control py-3">
+                    <option value="America" <%= addedmoviedata.country === 'america' ? 'selected' : '' %>>America</option>
+                    <option value="China" <%= addedmoviedata.country === 'china' ? 'selected' : '' %>>China</option>
+                    <option value="India" <%= addedmoviedata.country === 'india' ? 'selected' : '' %>>India</option>
+                    <option value="Japan" <%= addedmoviedata.country === 'japan' ? 'selected' : '' %>>Japan</option>
+                    <option value="Africa" <%= addedmoviedata.country === 'africa' ? 'selected' : '' %>>Africa</option>
+                  </select>
+                </div>
+                <div class="col-6">
+                  <input type="text" name="duration" value="<%=addedmoviedata.duration %>" placeholder="Duration"
+                    class="form-control py-3">
+                </div>
+                <div class="col-6">
+                  <select name="quality" class="form-control py-3">
+                    <option value="HD" <%= addedmoviedata.quality === 'HD' ? 'selected' : '' %>>HD</option>
+                    <option value="FullHD" <%= addedmoviedata.quality === 'FullHD' ? 'selected' : '' %>>Full HD</option>
+                    <option value="720p" <%= addedmoviedata.quality === '720p' ? 'selected' : '' %>>720p</option>
+                    <option value="480p" <%= addedmoviedata.quality === '480p' ? 'selected' : '' %>>480p</option>
+                    <option value="360p" <%= addedmoviedata.quality === '360p' ? 'selected' : '' %>>360p</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- File Upload, Director, Cast, Rating -->
+            <div class="col-6">
+              <input class="form-control py-3 mb-3" type="file" id="file" name="cover" required>
+            </div>
+            <div class="col-6">
+              <input class="form-control py-3 mb-3" type="text" id="Director" name="director"
+                value="<%=addedmoviedata.director %>" required>
+            </div>
+            <div class="col-9">
+              <input class="form-control py-3 mb-3" type="text" id="cast" name="cast" value="<%=addedmoviedata.cast %>"
+                required>
+            </div>
+            <div class="col-3">
+              <input class="form-control py-3 mb-3" type="text" id="rating" name="rating" value="<%=addedmoviedata.rating %>"
+                required>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="col-3 mt-5">
+              <input type="submit" class="form-control btn btn-primary" value="Update Movie">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+

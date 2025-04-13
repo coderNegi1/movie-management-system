@@ -1,0 +1,42 @@
+
+  <%- include('header.ejs') %>
+
+  <section class="background-radial-gradient overflow-hidden mt-5 pt-5">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-2 text-uppercase">
+          <%- include('left.ejs') %>
+        </div>
+        <div class="col-10">
+          <h2 class="text-center text-light my-3">Edit Registration</h2>
+  
+          <!-- Edit Registration Form -->
+          <form method="post" class="border rounded Movieform p-4">
+            <div class="row">
+              <!-- Username, Contact, Email, and Address Fields -->
+              <div class="col-12 my-3">
+                <input type="text" id="form3Example3" value="<%= regsterdata.username %>" name="username" class="form-control" placeholder="Username" />
+              </div>
+              <div class="col-12 my-3">
+                <input type="number" id="form3Example3" value="<%= regsterdata.contact %>" name="contact" class="form-control" placeholder="Contact" />
+              </div>
+              <div class="col-12 my-3">
+                <input type="email" id="form3Example3" value="<%= regsterdata.email %>" name="email" class="form-control" placeholder="Email" />
+              </div>
+              <div class="col-12 my-3">
+                <input type="text" id="form3Example3" value="<%= regsterdata.address %>" name="address" class="form-control" placeholder="Address" />
+              </div>
+  
+              <!-- Submit Button -->
+              <div class="col-12 my-3">
+                <button type="submit" class="btn btn-dark btn-block mb-4">
+                  Edit Registration
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  

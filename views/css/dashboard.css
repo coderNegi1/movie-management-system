@@ -1,0 +1,52 @@
+/* Global Styles */
+* {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+/* Body Styling */
+body {
+  background-color: rgba(12, 12, 12, 0.778);
+}
+
+/* Navbar Styling */
+.dashnavbar {
+  background-color: rgba(1, 10, 14, 0.424);
+  padding: 20px 0;
+  height: 620px;
+  width: 15%;
+  position: fixed;
+  top: 100px;
+}
+
+.dashnavbar a {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #007bff;
+  transition: background-color 0.3s, color 0.3s;
+  display: inline-block;
+}
+
+.dashnavbar a:hover {
+  width: 100%;
+  background-color: #f0f0f0;
+  color: #0056b3;
+}
+
+/* Table Styling (For Overflow) */
+.tableOverflow {
+  overflow-x: auto;
+}
+
+/* Form and Input Styling */
+.Movieform {
+  background: #1c1c1c;
+}
+
+input, select {
+  background-color: black !important;
+  color: #f0eded !important;
+}
+
+input::placeholder, select::placeholder {
+  color: #f0eded !important;
+}

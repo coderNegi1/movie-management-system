@@ -1,0 +1,155 @@
+
+
+
+
+/* modify css */
+/* General Reset for All Elements */
+* {
+  margin: 0;
+  padding: 0;
+  color: rgb(253, 249, 249);
+  font-size: 18px;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+/* Hero Section */
+.hero1 {
+  min-height: 600px;
+  width: 100%;
+  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.366), rgba(0, 0, 0, 0.564)), url(image/KaalanewposterJPG.jpeg);
+  height: 600px;
+}
+
+/* Carousel Styling for Upcoming Movies (Hide unneeded carousels) */
+#carousel2,
+#carouselCont2,
+#carousel3,
+#carouselCont3 {
+  display: none;
+}
+
+/* Carousel Display for Active Items */
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+  display: flex;
+}
+
+/* Text Justify for Large Screens */
+.text-justify {
+  text-align: justify;
+}
+
+/* Movie Cards Styling */
+.moviecard p {
+  opacity: 0; /* Hidden text by default */
+}
+
+.moviecard:hover {
+  filter: grayscale(1); /* Apply grayscale effect on hover */
+  background-image: linear-gradient(); /* Remove background gradient on hover */
+}
+
+.moviecard:hover p {
+  opacity: 1; /* Show text on hover */
+}
+
+
+/* Hover Effects on Movie Cards */
+.moviecard h5 {
+  text-transform: uppercase;
+  font-family: 'Arial'; /* Adjusted font for movie title */
+}
+
+/* Hover Content on Movie Cards */
+.moviehoverbody {
+  display: none;
+  position: absolute;
+}
+
+.maincard:hover .moviehoverbody {
+  display: block;
+  color: rgb(239, 236, 236);
+  padding: 10px;
+  backdrop-filter: blur(20px);
+  height: 100%;
+  font-weight: 800;
+}
+
+/* About Section */
+.AboutLogo {
+  height: 10px;
+}
+
+/* Hero Button Controls (Carousel Navigation) */
+.HeroBtnPrev {
+  position: absolute;
+  top: 500px;
+  left: 85px;
+  z-index: 1;
+  font-size: 30px;
+}
+
+.HeroBtnNext {
+  position: absolute;
+  top: 500px;
+  z-index: 1;
+  left: 125px;
+}
+
+/* Media Query for Medium Screens and Up (Adjust Button Positions) */
+@media only screen and (max-width: 991px) {
+  .HeroBtnPrev {
+    left: 40px;
+  }
+
+  .HeroBtnNext {
+    left: 80px;
+  }
+}
+
+/* Background Styling for Login/Signup/Contact Forms */
+.background-radial-gradient {
+  background-color: hsl(218, 41%, 15%);
+  background-image: radial-gradient(650px circle at 0% 0%, 
+    hsl(218, 41%, 35%) 15%, 
+    hsl(218, 41%, 30%) 35%, 
+    hsl(218, 41%, 20%) 75%, 
+    hsl(218, 41%, 19%) 80%, 
+    transparent 100%),
+    radial-gradient(1250px circle at 100% 100%, 
+    hsl(218, 41%, 45%) 15%, 
+    hsl(218, 41%, 30%) 35%, 
+    hsl(218, 41%, 20%) 75%, 
+    hsl(218, 41%, 19%) 80%, 
+    transparent 100%);
+}
+
+/* Decorative Shapes for Background */
+#radius-shape-1 {
+  height: 220px;
+  width: 220px;
+  top: -60px;
+  left: -130px;
+  background: radial-gradient(#44006b, #ad1fff);
+  overflow: hidden;
+}
+
+#radius-shape-2 {
+  border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+  bottom: -60px;
+  right: -110px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(#44006b, #ad1fff);
+  overflow: hidden;
+}
+
+/* Glass Effect Background */
+.bg-glass {
+  background-color: hsla(0, 4%, 10%, 0.9) !important;
+  backdrop-filter: saturate(200%) blur(25px);
+}
+
+
+

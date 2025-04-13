@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- css file -->
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body class="bg-dark">
+
+    <%- include('./common/header.ejs') %>
+
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <!-- Full-width container with padding and top spacing -->
+            <div class="container-fluid p-0 pt-5">
+                <!-- Carousel component -->
+                <div id="Herocarousel" class="carousel slide">
+
+                    <!-- Hidden buttons for large screens (carousel controls) -->
+                    <div class="container d-md-block d-none">
+                        <!-- Previous button for the carousel -->
+                        <button class="carousel-control-prev    " type="button" data-bs-target="#Herocarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+
+                        <!-- Next button for the carousel -->
+                        <button class="carousel-control-next" type="button" data-bs-target="#Herocarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+
+                    <!-- Carousel indicators (navigation buttons for slides) -->
+                    <div class="carousel-indicators">
+                        <!-- Indicator buttons for each slide -->
+                        <button type="button" data-bs-target="#Herocarousel" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#Herocarousel" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#Herocarousel" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+
+                    <!-- Carousel inner container for the slides -->
+                    <div class="carousel-inner p-0">
+                        <!-- Loop through the movie data and display the first 3 slides if available -->
+                        <% if (moviesdata.length> 0) { %>
+                            <% for (var i=0; i < Math.min(3, moviesdata.length); i++) { %>
+                                <!-- Individual carousel item (slide) -->
+                                <div class="carousel-item hero1 <%= i === 0 ? 'active' : '' %>"
+                                    style="background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.366), rgba(0, 0, 0, 0.564)), url('<%= moviesdata[i].cover %>'); height: 100%; width: 100%; background-size: cover; object-fit: cover;">
+
+                                    <!-- Content overlay on the carousel image -->
+                                    <div class="col-lg-5 col align-content-center m-5 text-light ps-lg-5">
+                                        <!-- Link to movie details page -->
+                                        <a href="/details/<%= moviesdata[i].id %>" class="text-decoration-none">
+                                            <!-- Movie name and rating -->
+                                            <h2 class=" ">
+                                               <span class="bg-light text-dark rounded btn  p-2"> <%= moviesdata[i].moviename %></span>
+                                                    <span class="fs-5 text-light ms-3">
+                                                        <i class="bi bi-star-fill text-warning"></i>
+                                                        <%= moviesdata[i].rating %>
+                                                    </span>
+                                            </h2>
+                                        </a>
+
+                                        <!-- Movie description -->
+                                        <p class="text-light">
+                                            <%= moviesdata[i].description %>
+                                        </p>
+
+                                        <!-- Movie genre -->
+                                        <p class="text-warning">
+                                            <%= moviesdata[i].choose_genere %>
+                                        </p>
+
+                                        <!-- Watch button -->
+                                       
+                                        <a class="btn btn-light p-2 px-4" href="/details/<%= moviesdata[i].id %>" >Watch</a>
+                                    </div>
+                                </div>
+                                <% } %>
+                                    <% } else { %>
+                                        <!-- If no movie data is available, show a "No records" message -->
+                                        <p>No records</p>
+                                        <% } %>
+                    </div> <!-- End of carousel-inner -->
+
+                </div> <!-- End of carousel -->
+            </div> <!-- End of container-fluid -->
+        </section> <!-- End of hero section -->
+
+        <!-- Upcoming Movies Section -->
+        <section>
+            <!-- Container for Upcoming Movies -->
+            <div class="container text-center my-3">
+
+                <!-- Title and Carousel Controls Section -->
+                <div class="container d-lg-flex text-start d-md-flex justify-content-between">
+                    <div>
+                        <!-- Section Title -->
+                        <h2 class="font-weight-light text-start">Upcoming Movies</h2>
+                    </div>
+                    <div class="crousel-controls d-flex mb-2 me-3">
+                        <!-- Optional Controls (you can add functionality here later) -->
+                    </div>
+                </div>
+
+                <!-- Carousel for displaying upcoming movies -->
+                <div class="row mx-auto my-auto justify-content-center" id="carousel1">
+                    <div id="Carouselcontrol1" class="carousel Upcomingcarousel slide" data-bs-ride="carousel">
+
+                        <!-- Carousel Inner Container (slides) -->
+                        <div class="carousel-inner" role="listbox">
+                            <!-- Check if there are more than 3 movies in the dataset -->
+                            <% if (moviesdata.length> 3) { %>
+                                <!-- Loop through the next set of movies (from index 3 to 6) -->
+                                <% for (var i=3; i < 7; i++) { %>
+                                    <!-- Carousel Item (each slide) -->
+                                    <div
+                                        class="carousel-item Upcomingcarousel-item column-gap-2 <%= i === 3 ? 'active' : '' %>">
+                                        <div class="col-md-3">
+                                            <!-- Card for each movie -->
+                                            <div class="card bg-dark border-0">
+                                                <!-- Movie Cover Image -->
+                                                <div class="card-img">
+                                                    <img src="/<%= moviesdata[i].cover %>" class="img-fluid rounded"
+                                                        style="min-height: 250px; min-width: 250px; object-fit: cover;">
+                                                </div>
+                                                <div class="card-body">
+                                                    <!-- Movie Title and Quality -->
+                                                    <div class="d-flex justify-content-between">
+                                                        <a href="/details/<%= moviesdata[i].id %>" class="text-decoration-none">
+                                                        <h5 class="text-start ">
+                                                            <%= moviesdata[i].moviename %>
+                                                        </h5>
+                                                    </a>
+                                                        <p>
+                                                            <%= moviesdata[i].quality %>
+                                                        </p>
+                                                    </div>
+                                                    <!-- Movie Release Date and Duration -->
+                                                    <div class="d-flex justify-content-between align-content-center">
+                                                        <p class="text-decoration-none text-start align-content-center">
+                                                            <%= moviesdata[i].date %>
+                                                        </p>
+                                                        <p>
+                                                            <span class="time"><i class="bi bi-clock"></i>
+                                                                <%= moviesdata[i].duration %>
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                                        <% } else { %>
+                                            <!-- Message if no movie data is available -->
+                                            <p>No records available</p>
+                                            <% } %>
+                        </div>
+
+                        <!-- Carousel Control Buttons (Previous and Next) -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Carouselcontrol1"
+                            data-bs-slide="prev" style="width: 5%; left: 0;">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Carouselcontrol1"
+                            data-bs-slide="next" style="width: 5%; right: 0;">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Online Streaming Section -->
+        <section>
+            <div class="container">
+                <!-- Section Title -->
+                <div>
+                    <h1>Top Rated Movies</h1>
+                </div>
+
+                <!-- Filter and Search Section -->
+                <div class="row justify-content-between">
+                    <!-- Dropdown for Movies -->
+                    <div class="dropdown my-4 col-md-3">
+                        <a class="btn btn-secondary">Movies</a>
+                    </div>
+
+                    <!-- Search Input Field -->
+                    <div class="my-4 col-md-4">
+                        <input type="text" id="myInput" class="form-control" placeholder="Search for a movie..."
+                            style="margin-bottom: 20px;">
+                    </div>
+                </div>
+
+                <!-- Movie Cards Section -->
+                <div class="row row-gap-3" id="TvShowContent">
+                    <div class="container">
+                        <!-- Check if there are movies to display -->
+                        <% if (moviesdata.length> 0) { %>
+                            <div class="row row-gap-3">
+                                <!-- Loop through movie data and display each movie -->
+                                <% for (var i=0; i < moviesdata.length; i++) { %>
+                                    <div class="col-md-3 col-sm-6 movie-card">
+                                        <!-- Movie Card with Background Image -->
+                                        <div class="container text-center rounded moviecard p-0"
+                                            style="background-image: url('<%= moviesdata[i].cover %>'); height: 360px; background-size: cover;">
+
+                                            <!-- Rating and Bookmark Icon -->
+                                            <div class="d-flex justify-content-between uppertext px-3 pt-3">
+                                                <p class="text-start text-light">
+                                                    <%= moviesdata[i].date %>
+                                                </p>
+                                                <p class="text-end text-light">
+                                                    <i class="bi bi-bookmark-plus"></i>
+                                                </p>
+                                            </div>
+
+                                          
+                                        </div>
+
+                                        <!-- Movie Title Link -->
+                                        <a href="/details/<%= moviesdata[i].id %>" class="text-decoration-none">
+                                            <h4 class="movie-title mt-2">
+                                                <%= moviesdata[i].moviename %>
+                                            </h4>
+                                        </a>
+
+                                        <!-- Movie Genre and Rating -->
+                                        <p class="d-flex justify-content-between pe-5">
+                                            <span class="text-warning">
+                                                <%= moviesdata[i].choose_genere %>
+                                            </span>
+                                            <span>
+                                                <i class="bi bi-star-fill text-warning"></i>
+                                                <%= moviesdata[i].rating %>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <% } else { %>
+                                <!-- Message if no movie records are available -->
+                                <p>No records found.</p>
+                                <% } %>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <%- include('./common/footer.ejs') %>
+
+
+            <script src="./js/script.js"></script>
+
+</body>
+
+</html>

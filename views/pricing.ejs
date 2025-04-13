@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- css file -->
+  <link rel="stylesheet" href="./css/style.css">
+
+
+  <style>
+    .pricing-card {
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      position: relative;
+      /* background: #d9d9d9; */
+
+      background-image: linear-gradient(140deg, #FFFFFF, #999999);
+
+    }
+
+    .price_hight {
+      min-height: 450px;
+    }
+
+    .popular-plan {
+      background-image: linear-gradient(130deg, #FFCC85, #FFFFFF);
+    }
+
+    .pricing-card.most-popular {
+      border: 2px solid #007bff;
+    }
+
+    .pricing-card .circle {
+      width: 40px;
+      height: 40px;
+      background-color: #0a09099b;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .circlem {
+      width: 50px !important;
+      height: 50px !important;
+    }
+
+    .pricing-card.most-popular .circle {
+      background-color: #007bff;
+      color: white;
+
+    }
+
+    .pricing-card .price {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: black;
+    }
+
+    .pricing-card .features {
+      text-align: left;
+      margin-top: 20px;
+
+    }
+
+    .pricing-card .features li {
+      list-style: none;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      color: black;
+    }
+
+
+
+
+
+    .pricing-card .most-popular-label {
+      position: absolute;
+      top: 35px;
+      right: 10px;
+      background-color: #0a0909;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 30px;
+      font-size: 12px;
+
+    }
+
+    .most-popular-label {
+      box-shadow: rgba(47, 47, 201, 0.2) 0px 5px 15px;
+    }
+
+
+    .line {
+      width: 25%;
+      display: inline-block;
+      position: relative;
+      top: 10px;
+      border: 1px solid black;
+      margin-top: 0;
+    }
+  </style>
+
+
+</head>
+
+<body class="bg-dark  ">
+  <%- include("./common/header.ejs") %>
+
+    <section class="mt-5 pt-5">
+      <div class="container">
+        <h2>Pricing Plans</h2>
+
+        <!-- price card -->
+        <!-- price  sec -->
+        <section id="Price ">
+          <div class="container py-5">
+            <h2 class="mb-3 text-center">Pricing<span class="themecolor ">Plans</span> </h2>
+            <hr class="w-25 m-auto border-2 pb-5  ">
+            <div class="row justify-content-center g-4">
+              <div class="col-md-4 align-content-center ">
+                <div class="pricing-card price_hight border border-dark   p-3 text-start">
+                  <div class="circle position-absolute"></div>
+                  <span class="most-popular-label me-2">Plan 1</span>
+                  <h2 class="mt-4 pt-4 fs-5 text-dark">Plan 21</h2>
+                  <p class="text-dark">Gain access to every premium feature, Along with personalised Schedule</p>
+                  <div class="price ">₹ 799<sub class="fw-normal text-dark">/month</sub></div>
+                  <button class="btn btn-primary w-100">Choose this plan</button>
+                  <ul class="features ">
+                    <li> <i class="bi bi-check-circle-fill text-success"></i> &nbsp Premium Plus Feature</li>
+                    <div class="my-2">
+                      <hr class="line">
+                      <span class="text-dark">All Features</span>
+                      <hr class="line">
+                    </div>
+                    <li> <i class="bi bi-check-circle-fill text-success"></i> &nbsp Premium feature Premium Plus</li>
+                    <li> <i class="bi bi-check-circle-fill text-success"></i> &nbsp Premium feature</li>
+                    <li> <i class="bi bi-check-circle-fill text-success"></i> &nbsp Premium feature</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="pricing-card most-popular popular-plan p-4  text-start">
+                  <div class="circle circlem position-absolute  bg-dark h1">P</div>
+                  <span class="most-popular-label">Most popular</span>
+                  <h2 class="mt-5 pt-4 fs-4 text-dark">Premium Plus +</h2>
+                  <p class="text-dark">Gain access to every premium feature, Along with personalised Schedule</p>
+                  <div class="price">₹ 1,499<sub class="fw-normal text-dark">/month</sub></div>
+                  <button class="btn btn-primary w-100">Choose this plan</button>
+                  <ul class="features">
+                    <li><i class="bi bi-check-circle-fill text-success"></i> &nbsp Premium Plus Feature</li>
+                    <li> <i class="bi bi-check-circle-fill text-success"></i> &nbsp Premium Plus Feature</li>
+                    <div class="my-2">
+                      <hr class="line">
+                      <span class="text-dark">All Features</span>
+                      <hr class="line">
+                    </div>
+                    <li> <i class="bi bi-check-circle-fill text-success"></i> &nbsp Premium feature Premium Plus</li>
+                    <li> <i class="bi bi-check-circle-fill text-success"></i> &nbsp Premium feature</li>
+                    <li> <i class="bi bi-check-circle-fill text-success"></i> &nbsp Premium feature</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-4 align-content-center">
+                <div class="pricing-card price_hight border border-dark  p-3 text-start">
+                  <div class="circle position-absolute"></div>
+                  <span class="most-popular-label">plan 3</span>
+                  <h2 class="mt-4 pt-4 fs-5 text-dark">Plan 2</h2>
+                  <p class="text-dark">Gain access to every premium feature, Along with personalised Schedule</p>
+                  <div class="price">₹ 1,199<sub class="fw-normal text-dark">/month</sub></div>
+                  <button class="btn btn-primary w-100">Choose this plan</button>
+                  <ul class="features ">
+                    <li> <i class="bi bi-check-circle-fill text-success"></i> &nbsp Premium Plus Feature</li>
+                    <div class="my-2">
+                      <hr class="line">
+                      <span class="text-dark">All Features</span>
+                      <hr class="line">
+                    </div>
+                    <li> <i class="bi bi-check-circle-fill text-success"></i> &nbsp Premium feature Premium Plus</li>
+                    <li> <i class="bi bi-check-circle-fill text-success"></i> &nbsp Premium feature</li>
+                    <li> <i class="bi bi-check-circle-fill text-success"></i> &nbsp Premium feature</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </section>
+
+    <section class="mt-5 pt-5">
+      <div class="container ">
+        <h2>About</h2>
+        <h2><span class="text-uppercase fw-bold">MOVER</span> – Best Place for Movies</h2>
+        <p>Welcome to Mover movie site, Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet nihil
+          nostrum laudantium impedit ducimus voluptates quos, blanditiis culpa maxime officiis dolores soluta
+          commodi totam minima voluptatem provident. Iusto autem nulla, debitis voluptatum voluptates labore
+          dolores sed exercitationem delectus sequi commodi architecto. Error sit illo, ullam magnam temporibus
+          fugiat ipsa sequi!</p>
+      </div>
+      <div class="container">
+        <div class="row   m-auto justify-content-between">
+
+          <div class="col-4 p-3  ">
+            <div class="container border rounded">
+              <h2>Ultra HD</h2>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis minima debitis, ducimus
+                fugiat distinctio est reiciendis sequi maiores eaque aperiam!</p>
+            </div>
+          </div>
+
+          <div class="col-4 p-3  ">
+            <div class="container border rounded">
+              <h2>Ultra HD</h2>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis minima debitis, ducimus
+                fugiat distinctio est reiciendis sequi maiores eaque aperiam!</p>
+            </div>
+          </div>
+          <div class="col-4 p-3  ">
+            <div class="container border rounded">
+              <h2>Ultra HD</h2>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis minima debitis, ducimus
+                fugiat distinctio est reiciendis sequi maiores eaque aperiam!</p>
+            </div>
+          </div>
+          <div class="col-4 p-3  ">
+            <div class="container border rounded">
+              <h2>Ultra HD</h2>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis minima debitis, ducimus
+                fugiat distinctio est reiciendis sequi maiores eaque aperiam!</p>
+            </div>
+          </div>
+          <div class="col-4 p-3  ">
+            <div class="container border rounded">
+              <h2>Ultra HD</h2>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis minima debitis, ducimus
+                fugiat distinctio est reiciendis sequi maiores eaque aperiam!</p>
+            </div>
+          </div>
+          <div class="col-4 p-3  ">
+            <div class="container border rounded">
+              <h2>Ultra HD</h2>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis minima debitis, ducimus
+                fugiat distinctio est reiciendis sequi maiores eaque aperiam!</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+    <%- include('./common/footer.ejs') %>
+
+
+
+</body>
+
+</html>

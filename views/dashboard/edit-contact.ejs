@@ -1,0 +1,43 @@
+
+  <%- include('header.ejs') %>
+
+  <section class="background-radial-gradient overflow-hidden mt-5 pt-5">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-2 text-uppercase">
+          <%- include('left.ejs') %>
+        </div>
+        <div class="col-10 ">
+          <h2 class="text-center text-light my-3 ">Edit Contact</h2>
+  
+          <!-- Edit Contact Form -->
+          <form method="post" class="border rounded Movieform p-4">
+            <div class="row">
+              <!-- Name, Email, Subject, and Message Fields -->
+              <div class="col-12 my-3">
+                <input type="text" id="form3Example3" value="<%= contactdata.name %>" name="name" class="form-control" placeholder="Name" />
+              </div>
+              <div class="col-12 my-3">
+                <input type="email" id="form3Example3" value="<%= contactdata.email %>" name="email" class="form-control" placeholder="Email" />
+              </div>
+              <div class="col-12 my-3">
+                <input type="text" id="form3Example3" value="<%= contactdata.subject %>" name="subject" class="form-control" placeholder="Subject" />
+              </div>
+              <div class="col-12 my-3">
+                <textarea name="massage" class="form-control" rows="4" placeholder="Message"><%= contactdata.massage %></textarea>
+              </div>
+  
+              <!-- Submit Button -->
+              <div class="col-12 my-3">
+                <button type="submit" class="btn btn-dark btn-block mb-4">
+                  Edit Contact
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+   
